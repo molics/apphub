@@ -2,21 +2,21 @@
 Signature="$Windows NT$"
 Class=Ports
 ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
-Provider=%COMPANY%
+Provider="Arduino"
 DriverVer=11/15/2007,1.0.0.0
 
 [Manufacturer]
-%COMPANY%=DeviceList, NTamd64
+%Mfg%=DeviceList,NTamd64
 
 [DeviceList]
-%DESCRIPTION%=DriverInstall, USB\VID_2341&PID_0001
-%DESCRIPTION%=DriverInstall, USB\VID_2341&PID_0043
-%DESCRIPTION%=DriverInstall, USB\VID_2341&PID_0010
+%Arduino.Uno%=DriverInstall, USB\UNKNOWN
+%Arduino.Uno%=DriverInstall, USB\VID_2341&PID_0043
+%Arduino.Uno%=DriverInstall, USB\VID_2341&PID_0001
 
 [DeviceList.NTamd64]
-%DESCRIPTION%=DriverInstall, USB\VID_2341&PID_0001
-%DESCRIPTION%=DriverInstall, USB\VID_2341&PID_0043
-%DESCRIPTION%=DriverInstall, USB\VID_2341&PID_0010
+%Arduino.Uno%=DriverInstall, USB\UNKNOWN
+%Arduino.Uno%=DriverInstall, USB\VID_2341&PID_0043
+%Arduino.Uno%=DriverInstall, USB\VID_2341&PID_0001
 
 [DriverInstall]
 Include=mdmcpq.inf
@@ -32,14 +32,12 @@ HKR,,EnumPropPages32,,"MsPorts.dll,PortsClassPage"
 AddService=usbser, 0x00000002, DriverService
 
 [DriverService]
-DisplayName=%SERVICE%
+DisplayName="Puerto Serie USB"
 ServiceType=1
 StartType=3
 ErrorControl=1
 ServiceBinary=%12%\usbser.sys
 
 [Strings]
-COMPANY="Arduino"
-RutaDrivers="Drivers de Comunicacion"
-DESCRIPTION="Arduino Uno Serial Virtual"
-SERVICE="Driver de Puerto Serial USB"
+Mfg="Arduino"
+Arduino.Uno="Arduino Uno Serial Virtual"
